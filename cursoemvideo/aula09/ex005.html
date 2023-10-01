@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(68, 125, 199);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+    <p>Dom significado <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odule</p>
+    <div name="msg-name" id="msg-id" class="msg-class">Clique em mim</div>
+
+    <script>
+        var p1 = document.getElementsByTagName('p')[1]
+        window.document.write('Esta ecrito assim: ' + p1.innerText + '<br>') // innerText pega o texto puro
+        window.document.write('Esta ecrito assim: ' + p1.innerHTML) // innerHTML pega o texto formatado com as tags HTML
+
+        var div_id = window.document.getElementById('msg-id')
+        div_id.innerText = 'Estou aguardando'
+
+        var div_class = window.document.getElementsByClassName('msg-class')[0]
+        div_class.style.background = 'black'
+
+        var div_name = window.document.getElementsByName('msg-name')[0]
+        div_name.style.color = 'blue'
+
+        var div_selector = window.document.querySelector('div#msg-id')
+        div_selector.style.borderRadius = '10px 10px'
+        div_selector.style.padding = '0 0 0 10px'
+        window.document.querySelector('div#msg-id')
+
+        // window.document.write(window.document.URL) // pegar a URL do documento
+    </script>
+</body>
+</html>
