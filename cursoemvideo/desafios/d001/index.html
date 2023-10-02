@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 1s;
+        }
+        body {
+            background-color: #dbdbc5;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px 0;
+        }
+        .container {
+            background-color: white;
+            height: 300px;
+            max-width: 450px;
+            margin: auto;
+            border-radius: 20px;
+            padding: 20px;
+        }
+        h2 {
+            font: normal 1em Arial;
+            text-align: center;
+        }
+        img {
+            width: 60%;
+            height: 90%;
+            border-radius: 50%;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+        a {
+            display: block;
+            color: white;
+            margin: 10px;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo1">Hora do Dia</h1>
+    <div class="container">
+        <h2 id="titulo2">Agora são horas.</h2>
+        <img id="imagem" src="imagens/amanhecer_.jpg" alt="">
+    </div>
+    <a id="link" href="https://github.com/lribeiroalves" target="_blank" rel="external">@lribeiroalves</a>
+
+    <script>
+        var h2 = document.querySelector('h2#titulo2')
+        var data = new Date()
+        h2.innerHTML = `Agora são ${data.getHours().toString().padStart(2, '0')}:${data.getMinutes().toString().padStart(2, '0')}:${data.getSeconds().toString().padStart(2, '0')}`
+        function update() {
+            data = new Date()
+            h2.innerHTML = `Agora são ${data.getHours().toString().padStart(2, '0')}:${data.getMinutes().toString().padStart(2, '0')}:${data.getSeconds().toString().padStart(2, '0')}`
+            imagem = document.querySelector('img#imagem')
+            if (data.getSeconds() < 20) {
+                document.body.style.backgroundColor = '#dbdbc5'
+                imagem.src = 'imagens/amanhecer_.jpg'
+            } else if (data.getSeconds() < 40) {
+                document.body.style.backgroundColor = 'salmon'
+                imagem.src = 'imagens/tarde_.jpg'
+            } else {
+                document.body.style.backgroundColor = '#1d0031'
+                imagem.src = 'imagens/noite_.jpg'
+            }
+        }
+        setInterval(update, 1000)
+    </script>
+</body>
+</html>
