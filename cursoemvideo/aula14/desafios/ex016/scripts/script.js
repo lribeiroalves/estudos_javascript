@@ -1,3 +1,6 @@
+/**
+ * @param {object} attrs
+ */
 function setAttributes(el, attrs) {
     for(var key in attrs) {
         el.setAttribute(key, attrs[key])
@@ -15,13 +18,22 @@ function contar() {
         if (passo == '0') {
             alert('Passo inválido! Considerando PASSO 1')
             passo = 1
+            input_passo.value = 1
         }
         msg.innerHTML = ''
-        for (var c = Number(inicio); c <= Number(fim); c+=Number(passo)) {
-            msg.innerHTML += c
-            msg.innerHTML += String.fromCodePoint(0x1F449)
+        if (Number(inicio) <= Number(fim)) {
+            for (var c = Number(inicio); c <= Number(fim); c+=Number(passo)) {
+                msg.innerHTML += c
+                msg.innerHTML += String.fromCodePoint(0x1F449)
+            }
+        } else {
+            for (var c = Number(inicio); c >= Number(fim); c-=Number(passo)) {
+                msg.innerHTML += c
+                msg.innerHTML += String.fromCodePoint(0x1F449)
+            }
         }
         msg.innerHTML += String.fromCodePoint(0x1F3C1)
+        msg.innerHTML += `\u{1F3C1}`
     }
 }
 
