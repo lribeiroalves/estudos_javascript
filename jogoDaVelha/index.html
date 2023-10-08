@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="assets/estilos/index-style.css">
+    <link rel="stylesheet" href="assets/estilos/index-media-queries.css">
+    <link rel="shortcut icon" href="assets/imagens/tictactoe.ico" type="image/x-icon">
+</head>
+<body onload="fade()">
+    <div id="container">
+        <div id="logo">
+            <img src="assets/imagens/tictactoe.jpg" alt="logo (Jogo da Velha)">
+        </div>
+        <div id="botoes">
+            <input id="start" type="button" value="iniciar" onclick="iniciar()" disabled>
+            <input id="play1" type="button" value="1 Jogador" onclick="singlePlayer()">
+            <input id="play2" type="button" value="2 Jogadores" onclick="twoPlayers()">
+        </div>
+    </div>
+
+
+    <script src="assets/scripts/index-script.js"></script>
+</body>
+</html>
